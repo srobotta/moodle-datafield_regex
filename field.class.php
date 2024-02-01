@@ -101,6 +101,7 @@ class data_field_regex extends data_field_base {
         $this->field->param1 = false; // Autolink.
         $this->field->param2 = false; // Case-sensitive.
         $this->field->param3 = '';    // The regex term.
+        $this->field->param4 = false; // Partial match.
         $this->field->name = '';
         $this->field->description = '';
         $this->field->required = false;
@@ -125,6 +126,7 @@ class data_field_regex extends data_field_base {
         if (isset($data->param3)) { // The regular expression term.
             $this->field->param3 = trim($data->param3);
         }
+        $this->field->param4 = !empty($data->param4) ? 1 : 0; // Partial match.
 
         return true;
     }
@@ -225,10 +227,11 @@ class data_field_regex extends data_field_base {
      * @return string
      */
     protected function getPattern(string $pattern): string {
+        $delimiter = '/';
         if (!str_contains($pattern, '~')) {
-            $pattern = '~' . $pattern . '~';
+            $delimiter = '~';
         } elseif (!str_contains($pattern, '|')) {
-            $pattern = '|' . $pattern . '|';
+            $delimiter = '|';
         } else {
             if (str_contains($pattern, '/')) {
                 $newpattern = '';
@@ -255,9 +258,14 @@ class data_field_regex extends data_field_base {
                 }
                 $pattern = $newpattern;
             }
-            $pattern = '/' . $pattern . '/';
         }
-        // We do not match case-sensitive then add the i flag.
+        // If we match the whole string we need to add the line anchors ^ and $.
+        if (!$this->field->param4) {
+            $pattern = '^' . $pattern . '$';
+        }
+        // Add the delimiter.
+        $pattern = $delimiter . $pattern . $delimiter;
+        // If we do not match case-sensitive then add the i flag.
         if (!$this->field->param2) {
             $pattern .= 'i';
         }

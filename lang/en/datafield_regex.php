@@ -24,8 +24,11 @@
 
 $string['pluginname'] = 'Regex';
 $string['casesensitive'] = 'Case-sensitive';
+$string['casesensitive_note'] = 'Check this if you want to match case-sensitive strings. By default all cases are matched.';
 $string['err_input'] = 'Your input didn\'t match the expected pattern.';
 $string['fieldtypelabel'] = 'Regular expression';
+$string['partialmatch'] = 'Only partial match';
+$string['partialmatch_note'] = 'By default the complete input must match the regular expression. The line anchors ^ and $ are used to match from start to end. By checking this, the match would be partial only, without the line anchors.';
 $string['regex_empty'] = 'Regular expression is empty';
 $string['regex_invalid'] = 'Regular expression is invalid';
 $string['regex_note'] = 'Please enter the regex without any delimiter char (e.g. /) at the beginning and end of the expression.';

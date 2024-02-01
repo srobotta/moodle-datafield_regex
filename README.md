@@ -33,14 +33,18 @@ field, the selection contains the new item "Regex".
 
 Apart from the standard settings for a field, there are:
 * Regular expression: for the regular expression itself. The term
-must not contain delimiter characters, such as `/`. These characters
-also don't need to be escaped in the string.
+must not contain delimiter characters, such as `/`. Also, these characters
+don't need to be escaped in the string.
 * Case-sensitive: check for case in the regex term. This need to be checked
 when the patter mixes upper case and lower case letters or, you want to explicit
 have a certain format, without transformation of the values in post processing.
+* Only partial match: By default the regular expression is applied to the entire
+string (from the beginning to the end - using the anchor characters `^` and
+`$`). To enable a partial match, this option can be set. The regex pattern
+then must only match somewhere in the submitted value.
 
-The other options are standard moodle options that do not change in this
-context.
+The other options *Required field* and *Allow autolink* are standard
+Moodle options that do not change in this context.
 
 ## Attribution
 

@@ -206,7 +206,7 @@ class data_field_regex extends data_field_base {
      * @return array $errors if empty validation was fine, otherwise contains one or more error messages
      */
     public function validate(stdClass $fieldinput): array {
-        if (!isset($fieldinput->param3) || empty($fieldinput->param3)) {
+        if (empty($fieldinput->param3)) {
             return ['param3' => get_string('regex_empty', 'datafield_regex')];
         }
         try {
@@ -239,6 +239,7 @@ class data_field_regex extends data_field_base {
                     // Search for every /.
                     $p = strpos($pattern, '/');
                     if ($p === false) {
+                        $newpattern .= $pattern;
                         break;
                     }
                     if ($p > 0) {

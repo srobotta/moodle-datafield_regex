@@ -17,10 +17,9 @@
 namespace datafield_regex;
 
 /**
- * PHPUnit data generator testcase.
+ * PHPUnit test cases for the regex validation.
  *
  * @package    datafield_regex
- * @category   phpunit
  * @copyright  2024 Stephan Robotta <stephan.robotta@bfh.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @coversDefaultClass \data_field_regex

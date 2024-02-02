@@ -111,6 +111,7 @@ class data_field_regex extends data_field_base {
     /**
      * Set up the field object according to data in an object.  Now is the time to clean it!
      *
+     * @param \stdClass $data
      * @return bool
      */
     public function define_field($data) {

@@ -38,19 +38,15 @@ class data_field_regex_test extends \advanced_testcase
     protected $data;
 
     /**
-     * @covers ::validate
+     * Test validation of regular expressions when submitting database entry values.
+     * @covers \data_field_regex::validate
      */
-    public function test_field_validation()
-    {
+    public function test_field_validation() {
         $this->resetAfterTest();
         $course = $this->getDataGenerator()->create_course();
 
         $this->generator = $this->getDataGenerator()->get_plugin_generator('mod_data');
         $this->data = $this->generator->create_instance(['course' => $course->id]);
-        $cm = get_coursemodule_from_instance('data', $this->data->id);
-        $this->assertEquals($this->data->id, $cm->instance);
-        $this->assertEquals('data', $cm->modname);
-        $this->assertEquals($course->id, $cm->course);
 
         $nomatch = get_string('err_input', 'datafield_regex');
 
@@ -74,6 +70,42 @@ class data_field_regex_test extends \advanced_testcase
         $this->assertEmpty($field3->field_validation([(object)['value' => '']]));
         $this->assertEmpty($field3->field_validation([(object)['value' => 'tesxxx!']]));
         $this->assertEmpty($field3->field_validation([(object)['value' => 'fetesxx']]));
+
+        $field4 = $this->create_field_regex('^(/home|~)/([a-z]+/?)+', false, true);
+        $this->assertEmpty($field4->field_validation([(object)['value' => '/home/server']]));
+        $this->assertEmpty($field4->field_validation([(object)['value' => '~/foo']]));
+        $this->assertEmpty($field4->field_validation([(object)['value' => '~/foo/bar']]));
+        $this->assertEmpty($field4->field_validation([(object)['value' => '~/foo/bar/baz']]));
+
+        $field5 = $this->create_field_regex('^(\/home|~)\/([a-z]+/?)+', false, true);
+        $this->assertEmpty($field5->field_validation([(object)['value' => '/home/server']]));
+        $this->assertEmpty($field5->field_validation([(object)['value' => '~/foo']]));
+        $this->assertEmpty($field5->field_validation([(object)['value' => '~/foo/bar']]));
+        $this->assertEmpty($field5->field_validation([(object)['value' => '~/foo/bar/baz']]));
+    }
+
+    /**
+     * Test validation of regex when a new database field is created.
+     * @return void
+     * @throws \coding_exception
+     * @throws \moodle_exception
+     * @covers \data_field_regex::validate()
+     */
+    public function test_validate() {
+        $this->resetAfterTest();
+        $course = $this->getDataGenerator()->create_course();
+
+        $this->generator = $this->getDataGenerator()->get_plugin_generator('mod_data');
+        $this->data = $this->generator->create_instance(['course' => $course->id]);
+        $field = new \data_field_regex(0, $this->data);
+        $errors = $field->validate((object)['param3' => '^(/home|~)/([a-z]+/?)+']);
+        $this->assertEmpty($errors);
+        $errors = $field->validate((object)['']);
+        $this->assertArrayHasKey('param3', $errors);
+        $this->assertEquals(get_string('regex_empty', 'datafield_regex'), $errors['param3']);
+        $errors = $field->validate((object)['param3' => 'test(foo']);
+        $this->assertArrayHasKey('param3', $errors);
+        $this->assertTrue(str_starts_with($errors['param3'], get_string('regex_invalid', 'datafield_regex')));
 
     }
 

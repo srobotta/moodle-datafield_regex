@@ -22,6 +22,7 @@ Feature: Teachers can create a new datatype field regex
       | Field name         | testfield        |
       | Field description  | Test Regex Field |
       | Regular expression | tes(t\|x)+       |
+      | Only partial match | 1                |
     Then I should see "testfield"
     And I should see "Test Regex Field"
     And I should see "Regular expression"

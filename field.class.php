@@ -61,8 +61,7 @@ class data_field_regex extends data_field_base {
      * @return string
      * @throws coding_exception
      */
-    public function get_name(): string
-    {
+    public function get_name(): string {
         return get_string('fieldtypelabel', 'datafield_regex');
     }
 
@@ -89,7 +88,7 @@ class data_field_regex extends data_field_base {
      *
      * @return bool
      */
-    function define_default_field() {
+    public function define_default_field() {
         global $OUTPUT;
         if (empty($this->data->id)) {
             echo $OUTPUT->notification('Programmer error: dataid not defined in field class');
@@ -114,7 +113,7 @@ class data_field_regex extends data_field_base {
      *
      * @return bool
      */
-    function define_field($data) {
+    public function define_field($data) {
         $this->field->type = $this->type;
         $this->field->dataid = $this->data->id;
 
@@ -192,7 +191,7 @@ class data_field_regex extends data_field_base {
         if (\is_array($value) && isset($value[0]->value)) {
             $val = trim($value[0]->value);
         }
-        if ($val !== '' && !preg_match($this->getPattern($this->field->param3), $val)) {
+        if ($val !== '' && !preg_match($this->get_pattern($this->field->param3), $val)) {
             return get_string('err_input', 'datafield_regex');
         }
         return '';
@@ -210,7 +209,7 @@ class data_field_regex extends data_field_base {
             return ['param3' => get_string('regex_empty', 'datafield_regex')];
         }
         try {
-            preg_match($this->getPattern($fieldinput->param3), '');
+            preg_match($this->get_pattern($fieldinput->param3), '');
         } catch (\Exception $e) {
             return ['param3' => get_string('regex_invalid', 'datafield_regex')
                 . ' - ' . $e->getMessage()];
@@ -226,11 +225,11 @@ class data_field_regex extends data_field_base {
      * @param string $pattern
      * @return string
      */
-    protected function getPattern(string $pattern): string {
+    protected function get_pattern(string $pattern): string {
         $delimiter = '/';
         if (!str_contains($pattern, '~')) {
             $delimiter = '~';
-        } elseif (!str_contains($pattern, '|')) {
+        } else if (!str_contains($pattern, '|')) {
             $delimiter = '|';
         } else {
             if (str_contains($pattern, '/')) {

@@ -25,8 +25,7 @@ namespace datafield_regex;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @coversDefaultClass \data_field_regex
  */
-class data_field_regex_test extends \advanced_testcase
-{
+class data_field_regex_test extends \advanced_testcase {
     /**
      * @var \mod_data_generator
      */
@@ -40,8 +39,9 @@ class data_field_regex_test extends \advanced_testcase
     /**
      * Test validation of regular expressions when submitting database entry values.
      * @covers \data_field_regex::validate
+     * @return void
      */
-    public function test_field_validation() {
+    public function test_field_validation(): void {
         $this->resetAfterTest();
         $course = $this->getDataGenerator()->create_course();
 
@@ -91,7 +91,7 @@ class data_field_regex_test extends \advanced_testcase
      * @throws \moodle_exception
      * @covers \data_field_regex::validate()
      */
-    public function test_validate() {
+    public function test_validate(): void {
         $this->resetAfterTest();
         $course = $this->getDataGenerator()->create_course();
 
@@ -106,7 +106,6 @@ class data_field_regex_test extends \advanced_testcase
         $errors = $field->validate((object)['param3' => 'test(foo']);
         $this->assertArrayHasKey('param3', $errors);
         $this->assertTrue(str_starts_with($errors['param3'], get_string('regex_invalid', 'datafield_regex')));
-
     }
 
     /**

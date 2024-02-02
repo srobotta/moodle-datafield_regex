@@ -9,32 +9,46 @@
                               id="description" value="<?php p($this->field->description);?>" /></td>
     </tr>
     <tr>
-        <td class="c0" style="vertical-align: top"><label for="param3"><?php echo get_string('fieldtypelabel', 'datafield_regex'); ?></label></td>
+        <td class="c0" style="vertical-align: top"><label
+                for="param3"><?php echo get_string('fieldtypelabel', 'datafield_regex'); ?></label></td>
         <td class="c1"><input class="fielddescription" type="text" name="param3"
                               id="param3" value="<?php p($this->field->param3);?>" />
                 <a class="btn btn-link p-0" role="button"
                    data-container="body" data-toggle="popover"
                    data-placement="right"
-                   data-content="&lt;div class=&quot;no-overflow&quot;&gt;&lt;p&gt;<?php echo htmlentities(get_string('regex_note', 'datafield_regex')); ?>&lt;/p&gt;&lt;/div&gt;"
+                   data-content="&lt;div class=&quot;no-overflow&quot;&gt;&lt;p&gt;<?php
+                       echo htmlentities(get_string('regex_note', 'datafield_regex'));
+                   ?>&lt;/p&gt;&lt;/div&gt;"
                    data-html="true" tabindex="0" data-trigger="focus" aria-label="Help">
                     <i class="icon fa fa-question-circle text-info fa-fw" role="img"
-                       title="<?php echo htmlentities(get_string('helpprefix2', 'moodle', get_string('fieldtypelabel', 'datafield_regex'))); ?>"
-                       aria-label="<?php echo htmlentities(get_string('helpprefix2', 'moodle', get_string('fieldtypelabel', 'datafield_regex'))); ?>"></i>
+                       title="<?php
+                           echo htmlentities(get_string('helpprefix2', 'moodle', get_string('fieldtypelabel', 'datafield_regex')));
+                       ?>"
+                       aria-label="<?php
+                           echo htmlentities(get_string('helpprefix2', 'moodle', get_string('fieldtypelabel', 'datafield_regex')));
+                       ?>"></i>
                 </a>
         </td>
     </tr>
     <tr>
-        <td class="c0"><label for="param2"><?php echo get_string('casesensitive', 'datafield_regex') ?></label></td>
+        <td class="c0"><label
+                for="param2"><?php echo get_string('casesensitive', 'datafield_regex') ?></label></td>
         <td class="c1"><input type="checkbox" name="param2"
                               id="param2" <?php if($this->field->param2) {echo 'checked="checked"';} ?> value="1" />
             <a class="btn btn-link p-0" role="button"
                data-container="body" data-toggle="popover"
                data-placement="right"
-               data-content="&lt;div class=&quot;no-overflow&quot;&gt;&lt;p&gt;<?php echo htmlentities(get_string('casesensitive_note', 'datafield_regex')); ?>&lt;/p&gt;&lt;/div&gt;"
+               data-content="&lt;div class=&quot;no-overflow&quot;&gt;&lt;p&gt;<?php
+                   echo htmlentities(get_string('casesensitive_note', 'datafield_regex'));
+               ?>&lt;/p&gt;&lt;/div&gt;"
                data-html="true" tabindex="0" data-trigger="focus" aria-label="Help">
                 <i class="icon fa fa-question-circle text-info fa-fw" role="img"
-                   title="<?php echo htmlentities(get_string('helpprefix2', 'moodle', get_string('casesensitive', 'datafield_regex'))); ?>"
-                   aria-label="<?php echo htmlentities(get_string('helpprefix2', 'moodle', get_string('casesensitive', 'datafield_regex'))); ?>"></i>
+                   title="<?php
+                       echo htmlentities(get_string('helpprefix2', 'moodle', get_string('casesensitive', 'datafield_regex')));
+                   ?>"
+                   aria-label="<?php
+                       echo htmlentities(get_string('helpprefix2', 'moodle', get_string('casesensitive', 'datafield_regex')));
+                   ?>"></i>
             </a>
         </td>
     </tr>
@@ -45,11 +59,17 @@
             <a class="btn btn-link p-0" role="button"
                data-container="body" data-toggle="popover"
                data-placement="right"
-               data-content="&lt;div class=&quot;no-overflow&quot;&gt;&lt;p&gt;<?php echo htmlentities(get_string('partialmatch_note', 'datafield_regex')); ?>&lt;/p&gt;&lt;/div&gt;"
+               data-content="&lt;div class=&quot;no-overflow&quot;&gt;&lt;p&gt;<?php
+                   echo htmlentities(get_string('partialmatch_note', 'datafield_regex'));
+               ?>&lt;/p&gt;&lt;/div&gt;"
                data-html="true" tabindex="0" data-trigger="focus" aria-label="Help">
                 <i class="icon fa fa-question-circle text-info fa-fw" role="img"
-                   title="<?php echo htmlentities(get_string('helpprefix2', 'moodle', get_string('partialmatch', 'datafield_regex'))); ?>"
-                   aria-label="<?php echo htmlentities(get_string('helpprefix2', 'moodle', get_string('partialmatch', 'datafield_regex'))); ?>"></i>
+                   title="<?php
+                       echo htmlentities(get_string('helpprefix2', 'moodle', get_string('partialmatch', 'datafield_regex')));
+                   ?>"
+                   aria-label="<?php
+                       echo htmlentities(get_string('helpprefix2', 'moodle', get_string('partialmatch', 'datafield_regex')));
+                   ?>"></i>
             </a>
         </td>
     </tr>

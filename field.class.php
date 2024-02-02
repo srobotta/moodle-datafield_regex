@@ -228,12 +228,12 @@ class data_field_regex extends data_field_base {
      */
     protected function get_pattern(string $pattern): string {
         $delimiter = '/';
-        if (!str_contains($pattern, '~')) {
+        if (strpos($pattern, '~') === false) {
             $delimiter = '~';
-        } else if (!str_contains($pattern, '|')) {
+        } else if (strpos($pattern, '|') === false) {
             $delimiter = '|';
         } else {
-            if (str_contains($pattern, '/')) {
+            if (strpos($pattern, '/') !== false) {
                 $newpattern = '';
                 while (true) {
                     // Search for every /.

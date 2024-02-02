@@ -19,14 +19,15 @@ Feature: Users can use the datatype field regex and add an entry with that type.
   Scenario: Student can add an entry to a database with a valid value for a regex field.
     Given the following "mod_data > fields" exist:
       | database | type  | name        | description  | param3     | required |
+      | data1    | text  | field text  | Some text    |            | 0        |
       | data1    | regex | field regex | Descr. regex | foss(bar)? | 1        |
     When I am on the "Course 1" course page logged in as student1
     And I add an entry to "Test database name" database with:
-      | field regex | |
+      | field text  | some value |
+      | field regex |            |
     And I press "Save"
     Then I should see "You must supply a value here."
-    And I should see "You did not fill out any fields!"
-    And I set the field "field regex" to "invalid"
+    And I set the field "field regex" to "someval"
     And I press "Save"
     Then I should see "Your input didn't match the expected pattern."
     And I set the field "field regex" to "fossbar"

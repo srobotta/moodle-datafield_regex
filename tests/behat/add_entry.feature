@@ -36,3 +36,22 @@ Feature: Users can use the datatype field regex and add an entry with that type.
     And I should see "Last edited:"
     And I should not see "Your input didn't match the expected pattern."
 
+  @javascript
+  Scenario: Student receives an custom error message when invalid input is provided.
+    Given the following "mod_data > fields" exist:
+      | database | type  | name        | description  | param3     | required | param5                                                                                                               |
+      | data1    | text  | field text  | Some text    |            | 0        |                                                                                                                      |
+      | data1    | regex | field regex | Descr. regex | foss(bar)? | 1        | <span class="multilang" lang="en">Data error in EN</span><span class="multilang" lang="de">Datenfehler auf DE</span> |
+    When I am on the "Course 1" course page logged in as student1
+    And I add an entry to "Test database name" database with:
+      | field text  | some value |
+      | field regex | invalid    |
+    And I press "Save"
+    Then I should see "Data error in EN"
+    And I should not see "Your input didn't match the expected pattern."
+    And I set the field "field regex" to "fossbar"
+    And I press "Save"
+    Then I should see "field regex"
+    And I should see "Last edited:"
+    And I should not see "Data error in EN"
+    And I should not see "Your input didn't match the expected pattern."

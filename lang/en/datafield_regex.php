@@ -25,6 +25,8 @@
 $string['pluginname'] = 'Regex';
 $string['casesensitive'] = 'Case-sensitive';
 $string['casesensitive_note'] = 'Check this if you want to match case-sensitive strings. By default all cases are matched.';
+$string['custom_err'] = 'Custom error message';
+$string['custom_err_note'] = 'Show this custom error message instead of a generic one, when the input does not match the regular expression. This can be a hint to explain briefly what input is expected. Language tags can be used here.';
 $string['err_input'] = 'Your input didn\'t match the expected pattern.';
 $string['fieldtypelabel'] = 'Regular expression';
 $string['partialmatch'] = 'Only partial match';

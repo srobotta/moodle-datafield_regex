@@ -74,6 +74,27 @@
         </td>
     </tr>
     <tr>
+        <td class="c0"><label for="param5"><?php echo get_string('custom_err', 'datafield_regex') ?></label></td>
+        <td class="c1"><input class="fielddescription" type="text" name="param5"
+                              id="param5" value="<?php p($this->field->param5);?>" />
+            <a class="btn btn-link p-0" role="button"
+               data-container="body" data-toggle="popover"
+               data-placement="right"
+               data-content="&lt;div class=&quot;no-overflow&quot;&gt;&lt;p&gt;<?php
+                   echo htmlentities(get_string('custom_err_note', 'datafield_regex'));
+               ?>&lt;/p&gt;&lt;/div&gt;"
+               data-html="true" tabindex="0" data-trigger="focus" aria-label="Help">
+                <i class="icon fa fa-question-circle text-info fa-fw" role="img"
+                   title="<?php
+                       echo htmlentities(get_string('helpprefix2', 'moodle', get_string('custom_err', 'datafield_regex')));
+                   ?>"
+                   aria-label="<?php
+                       echo htmlentities(get_string('helpprefix2', 'moodle', get_string('custom_err', 'datafield_regex')));
+                   ?>"></i>
+            </a>
+        </td>
+    </tr>
+    <tr>
         <td class="c0"><label for="required"><?php echo get_string('requiredfield', 'data'); ?></label></td>
         <td class="c1"><input class="requiredfield" type="checkbox" name="required"
                               id="required" <?php p($this->field->required?"checked=\"checked\"":""); ?>/></td>

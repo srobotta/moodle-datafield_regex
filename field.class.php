@@ -101,6 +101,7 @@ class data_field_regex extends data_field_base {
         $this->field->param2 = false; // Case-sensitive.
         $this->field->param3 = '';    // The regex term.
         $this->field->param4 = false; // Partial match.
+        $this->field->param5 = '';    // Custom error message.
         $this->field->name = '';
         $this->field->description = '';
         $this->field->required = false;
@@ -127,6 +128,9 @@ class data_field_regex extends data_field_base {
             $this->field->param3 = trim($data->param3);
         }
         $this->field->param4 = !empty($data->param4) ? 1 : 0; // Partial match.
+        if (isset($data->param5)) { // Custom error message.
+            $this->field->param5 = trim($data->param5);
+        }
 
         return true;
     }
@@ -193,6 +197,9 @@ class data_field_regex extends data_field_base {
             $val = trim($value[0]->value);
         }
         if ($val !== '' && !preg_match($this->get_pattern($this->field->param3), $val)) {
+            if (!empty($this->field->param5)) {
+                return format_string($this->field->param5);
+            }
             return get_string('err_input', 'datafield_regex');
         }
         return '';

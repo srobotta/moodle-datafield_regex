@@ -31,6 +31,13 @@ fields will be missing.
 Within your database activity in the *Fields* tab when creating a new
 field, the selection contains the new item "Regex".
 
+### Creating a new field
+
+When creating a new field of the type regular expression this dialogue
+shows up:
+
+![Settings of the field type regex](screenshots/edit_field.png)
+
 Apart from the standard settings for a field, there are:
 * Regular expression: for the regular expression itself. The term
 must not contain delimiter characters, such as `/`. Also, these characters
@@ -42,9 +49,36 @@ have a certain format, without transformation of the values in post processing.
 string (from the beginning to the end - using the anchor characters `^` and
 `$`). To enable a partial match, this option can be set. The regex pattern
 then must only match somewhere in the submitted value.
+* Custom error message: By default a generic error message is displayed
+to the user when the input is not valid, i.e. does not match the regular
+expression. This error message can be customized, so that the user get's
+an idea how a correct input should look like. The error message is passed
+to the Moodle filters before being displayed. Therefore, multi language
+error messages can be provided.
 
 The other options *Required field* and *Allow autolink* are standard
 Moodle options that do not change in this context.
+
+Whe the field settings are saved the newly created field shows up
+in the list of fields.
+
+![List of the fields](screenshots/field_list.png)
+
+### Add a new entry
+
+The appearance of a field of the type regular expression looks the same
+as a short text field. The difference is, that the input is validated
+against the provided regular expression. If the input does not match
+an error message is shown to the user and the entry cannot be saved.
+
+With a customized error message the user can be given a hint how
+the input is supposed to look like. Otherwise, a generic error message
+is shown that the input is invalid.
+
+![Enter a new data set](screenshots/new_field_custom_err.png)
+
+With template customization you may also provide further explanations
+to the user which input is expected.
 
 ## Attribution
 
@@ -53,6 +87,11 @@ taken from https://iconduck.com/icons/275980/regex. It's published
 under the [CC BY 4.0](https://iconduck.com/licenses/cc-by-4.0) license.
 
 ## Version History
+
+### 1.1
+
+- Add possibility to add a custom error message when input is invalid.
+- Documentation in README file extended with screenshots
 
 ### 1.0
 

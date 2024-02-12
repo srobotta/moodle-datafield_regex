@@ -5,7 +5,7 @@
 ![Supported](https://img.shields.io/badge/Moodle-4.1+-orange.svg)
 [![License GPL-3.0](https://img.shields.io/github/license/srobotta/moodle-datafield_regex?color=lightgrey)](https://github.com/srobotta/moodle-datafield_regex/blob/master/LICENSE)
 
-This plugin provides a new field type for regular expression for the
+This plugin provides an additional field type for regular expression for the
 database activity. The field is very similar to the "Short text" field.
 The main difference is that input can be validated against a regular
 expression that must match before the value is accepted.
@@ -28,7 +28,7 @@ fields will be missing.
 ## Usage
 
 Within your database activity in the *Fields* tab when creating a new
-field, the selection contains the new item "Regex".
+field, the selection contains the type "Regex".
 
 ### Creating a new field
 

@@ -1,6 +1,6 @@
 # Database Field Regular expression
 
-![Release](https://img.shields.io/badge/Release-1.1-blue.svg)
+![Release](https://img.shields.io/badge/Release-1.2-blue.svg)
 [![Moodle Plugin CI](https://github.com/srobotta/moodle-datafield_regex/actions/workflows/moodle-plugin-ci.yml/badge.svg?branch=master)](https://github.com/srobotta/moodle-datafield_regex/actions?query=workflow%3A%22Moodle+Plugin+CI%22+branch%3Amaster)
 ![Supported](https://img.shields.io/badge/Moodle-4.1+-orange.svg)
 [![License GPL-3.0](https://img.shields.io/github/license/srobotta/moodle-datafield_regex?color=lightgrey)](https://github.com/srobotta/moodle-datafield_regex/blob/master/LICENSE)
@@ -85,6 +85,16 @@ taken from https://iconduck.com/icons/275980/regex. It's published
 under the [CC BY 4.0](https://iconduck.com/licenses/cc-by-4.0) license.
 
 ## Version History
+
+### 1.2
+
+- Change link to icon in field list.
+- Remove obsolete field "Autolink".
+- Change wording from new type to additional type.
+- Adjust documentation in README file.
+
+Most of these issues were done because of the extensive review
+by [Laurent David](https://github.com/laurentdavid) - thank you.
 
 ### 1.1
 

@@ -21,8 +21,7 @@ so that the files from the repository are inside the directory hierarchy
 1. Run `php mod/data/field/regex/cli/install.php` to symlink/copy
 the icon file from the plugin directory into the `mod/data/pix/field`
 directory. This step is optional, when not executed, the icon next to the
-regex entry under the button "Create a field" and in the list of existing
-fields will be missing.
+regex entry under the button "Create a field" will be missing.
 1. Finish the installation via the Moodle admin page.
 
 ## Usage
@@ -55,7 +54,7 @@ an idea how a correct input should look like. The error message is passed
 to the Moodle filters before being displayed. Therefore, multi language
 error messages can be provided.
 
-The other options *Required field* and *Allow autolink* are standard
+The option *Required field* is a standard
 Moodle options that do not change in this context.
 
 Whe the field settings are saved the newly created field shows up

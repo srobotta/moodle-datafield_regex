@@ -27,7 +27,7 @@ Feature: Users can use the datatype field regex and add an entry with that type.
       | field regex |            |
     And I press "Save"
     Then I should see "You must supply a value here."
-    And I set the field "field regex" to "someval"
+    When I set the field "field regex" to "someval"
     And I press "Save"
     Then I should see "Your input didn't match the expected pattern."
     And I set the field "field regex" to "fossbar"
@@ -49,7 +49,7 @@ Feature: Users can use the datatype field regex and add an entry with that type.
     And I press "Save"
     Then I should see "Data error in EN"
     And I should not see "Your input didn't match the expected pattern."
-    And I set the field "field regex" to "fossbar"
+    When I set the field "field regex" to "fossbar"
     And I press "Save"
     Then I should see "field regex"
     And I should see "Last edited:"

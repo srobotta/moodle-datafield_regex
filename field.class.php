@@ -51,8 +51,8 @@ class data_field_regex extends data_field_base {
     public function image() {
         global $OUTPUT;
 
-        // When the cli/install.php was executed, the icon was linked/copied at this location.
-        return $OUTPUT->pix_icon('field/regex', 'regex', 'data');
+        // Show the custom icon on a regex field in the fields list.
+        return $OUTPUT->pix_icon('regex', 'regex', 'datafield_regex');
     }
 
     /**
@@ -97,7 +97,7 @@ class data_field_regex extends data_field_base {
         $this->field->id = 0;
         $this->field->dataid = $this->data->id;
         $this->field->type = $this->type;
-        $this->field->param1 = false; // Autolink.
+        $this->field->param1 = false; // Autolink, obsolete.
         $this->field->param2 = false; // Case-sensitive.
         $this->field->param3 = '';    // The regex term.
         $this->field->param4 = false; // Partial match.
@@ -234,12 +234,16 @@ class data_field_regex extends data_field_base {
      * @return string
      */
     protected function get_pattern(string $pattern): string {
+        // This is the default enclosing character that is usually used for regular expression.
         $delimiter = '/';
+        // PHP allows other enclosing chars for a regex. Check for a tilde and pipe first.
         if (strpos($pattern, '~') === false) {
             $delimiter = '~';
         } else if (strpos($pattern, '|') === false) {
             $delimiter = '|';
         } else {
+            // The default is the slash. Here we need to check now whether to escape
+            // expressions inside the term.
             if (strpos($pattern, '/') !== false) {
                 $newpattern = '';
                 while (true) {

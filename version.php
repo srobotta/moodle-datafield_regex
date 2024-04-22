@@ -28,3 +28,4 @@ $plugin->requires  = 2022112808;        // Requires this Moodle version (4.1).
 $plugin->component = 'datafield_regex'; // Full name of the plugin (used for diagnostics).
 $plugin->release   = '1.3';             // Readable version of this plugin.
 $plugin->maturity  = MATURITY_STABLE;   // Maturity of this plugin.
+$plugin->supported = [401, 404];

@@ -41,7 +41,7 @@ class provider implements null_provider, datafield_provider {
      *
      * @return  string
      */
-    public static function get_reason() : string {
+    public static function get_reason(): string {
         return 'privacy:metadata';
     }
 

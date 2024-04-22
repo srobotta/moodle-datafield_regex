@@ -22,25 +22,25 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(__DIR__ . '/../../../../../config.php');
-
+/**
+ * Database regex field install code
+ */
 function xmldb_datafield_regex_install() {
-    require_once(implode(DIRECTORY_SEPARATOR,
-        array_merge([__DIR__], array_fill(1, 5, '..'), ['config.php'])));
 
     $target = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'pix', 'regex.svg']);
     $link = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'pix', 'field', 'regex.svg']);
 
-    echo 'Create symlink for regex icon... ';
-    if (!symlink($target, $link)) {
-        echo 'failed' . PHP_EOL . 'Copy regex icon... ';
-        if (!\copy($target, $link)) {
-            echo 'failed' . PHP_EOL . "Please copy {$target} to {$link}" . PHP_EOL;
+    if (!file_exists($target)) {
+        echo 'Create symlink for regex icon... ';
+        if (!\symlink($target, $link)) {
+            echo 'failed' . PHP_EOL . 'Copy regex icon... ';
+            if (!\copy($target, $link)) {
+                echo 'failed' . PHP_EOL . "Please copy {$target} to {$link}" . PHP_EOL;
+            } else {
+                echo 'ok' . PHP_EOL;
+            }
         } else {
             echo 'ok' . PHP_EOL;
         }
-    } else {
-        echo 'ok' . PHP_EOL;
     }
 }
-

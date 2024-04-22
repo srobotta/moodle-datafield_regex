@@ -24,7 +24,7 @@ namespace datafield_regex;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @coversDefaultClass \data_field_regex
  */
-class data_field_regex_test extends \advanced_testcase {
+final class data_field_regex_test extends \advanced_testcase {
     /**
      * @var \mod_data_generator
      */

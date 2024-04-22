@@ -22,7 +22,8 @@ Feature: Users can use the datatype field regex and add an entry with that type.
       | data1    | text  | field text  | Some text    |            | 0        |
       | data1    | regex | field regex | Descr. regex | foss(bar)? | 1        |
     When I am on the "Course 1" course page logged in as student1
-    And I add an entry to "Test database name" database with:
+    And I am on the "Test database name" "mod_data > add entry" page logged in as student1
+    And I set the following fields to these values:
       | field text  | some value |
       | field regex |            |
     And I press "Save"
@@ -43,7 +44,8 @@ Feature: Users can use the datatype field regex and add an entry with that type.
       | data1    | text  | field text  | Some text    |            | 0        |                                                                                                                      |
       | data1    | regex | field regex | Descr. regex | foss(bar)? | 1        | <span class="multilang" lang="en">Data error in EN</span><span class="multilang" lang="de">Datenfehler auf DE</span> |
     When I am on the "Course 1" course page logged in as student1
-    And I add an entry to "Test database name" database with:
+    And I am on the "Test database name" "mod_data > add entry" page logged in as student1
+    And I set the following fields to these values:
       | field text  | some value |
       | field regex | invalid    |
     And I press "Save"

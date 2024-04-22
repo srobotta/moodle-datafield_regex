@@ -1,9 +1,10 @@
 # Database Field Regular expression
 
 ![Release](https://img.shields.io/badge/Release-1.2-blue.svg)
-[![Moodle Plugin CI](https://github.com/srobotta/moodle-datafield_regex/actions/workflows/moodle-plugin-ci.yml/badge.svg?branch=master)](https://github.com/srobotta/moodle-datafield_regex/actions?query=workflow%3A%22Moodle+Plugin+CI%22+branch%3Amaster)
-![Supported](https://img.shields.io/badge/Moodle-4.1+-orange.svg)
-[![License GPL-3.0](https://img.shields.io/github/license/srobotta/moodle-datafield_regex?color=lightgrey)](https://github.com/srobotta/moodle-datafield_regex/blob/master/LICENSE)
+[![Moodle Plugin CI](https://github.com/srobotta/moodle-datafield_regex/actions/workflows/moodle-plugin-ci.yml/badge.svg?branch=main)](https://github.com/srobotta/moodle-datafield_regex/actions?query=workflow%3A%22Moodle+Plugin+CI%22+branch%3Amain)
+[![PHP Support](https://img.shields.io/badge/php-7.4--8.3-blue)](https://github.com/brobotta/moodle-datafield_regex/action)
+[![Moodle Support](https://img.shields.io/badge/Moodle-4.1--4.4+-orange)](https://github.com/srobotta/moodle-datafield_regex/actions)
+[![License GPL-3.0](https://img.shields.io/github/license/srobotta/moodle-datafield_regex?color=lightgrey)](https://github.com/srobotta/moodle-datafield_regex/blob/main/LICENSE)
 
 This plugin provides an additional field type for regular expression for the
 database activity. The field is very similar to the "Short text" field.
@@ -18,10 +19,6 @@ Please run the following steps:
 1. Rename the newly created directory `moodle-datafield_regex` into `regex`
 so that the files from the repository are inside the directory hierarchy
 `<moodle_install_dir>/mod/data/field/regex`.
-1. Run `php mod/data/field/regex/cli/install.php` to symlink/copy
-the icon file from the plugin directory into the `mod/data/pix/field`
-directory. This step is optional, when not executed, the icon next to the
-regex entry under the button "Create a field" will be missing.
 1. Finish the installation via the Moodle admin page.
 
 ## Usage
@@ -85,6 +82,11 @@ taken from https://iconduck.com/icons/275980/regex. It's published
 under the [CC BY 4.0](https://iconduck.com/licenses/cc-by-4.0) license.
 
 ## Version History
+
+### 1.3
+
+- Moved install script to the correct location db/install.php.
+- Support for Moodle 4.4 and PHP 8.3.
 
 ### 1.2
 

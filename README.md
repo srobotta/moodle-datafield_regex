@@ -1,8 +1,8 @@
 # Database Field Regular expression
 
 ![Release](https://img.shields.io/badge/Release-1.3-blue.svg)
-[![Moodle Plugin CI](https://github.com/srobotta/moodle-datafield_regex/actions/workflows/moodle-plugin-ci.yml/badge.svg?branch=master)](https://github.com/srobotta/moodle-datafield_regex/actions?query=workflow%3A%22Moodle+Plugin+CI%22+branch%3Amaster)
-[![PHP Support](https://img.shields.io/badge/php-7.4--8.3-blue)](https://github.com/brobotta/moodle-datafield_regex/action)
+[![Moodle Plugin CI](https://github.com/srobotta/moodle-datafield_regex/actions/workflows/moodle-plugin-ci.yml/badge.svg?branch=main)](https://github.com/srobotta/moodle-datafield_regex/actions?query=workflow%3A%22Moodle+Plugin+CI%22+branch%3Amain)
+[![PHP Support](https://img.shields.io/badge/php-7.4--8.3-blue)](https://github.com/srobotta/moodle-datafield_regex/action)
 [![Moodle Support](https://img.shields.io/badge/Moodle-4.1--4.4+-orange)](https://github.com/srobotta/moodle-datafield_regex/actions)
 [![License GPL-3.0](https://img.shields.io/github/license/srobotta/moodle-datafield_regex?color=lightgrey)](https://github.com/srobotta/moodle-datafield_regex/blob/main/LICENSE)
 

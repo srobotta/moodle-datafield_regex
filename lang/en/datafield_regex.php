@@ -15,14 +15,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'datafield_regex', language 'en', branch 'master'
+ * Strings for component 'datafield_regex', language 'en', branch 'main'
  *
  * @package    datafield_regex
  * @copyright  2024 Stephan Robotta <stephan.robotta@bfh.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Regex';
 $string['casesensitive'] = 'Case-sensitive';
 $string['casesensitive_note'] = 'Check this if you want to match case-sensitive strings. By default all cases are matched.';
 $string['custom_err'] = 'Custom error message';
@@ -31,7 +30,8 @@ $string['err_input'] = 'Your input didn\'t match the expected pattern.';
 $string['fieldtypelabel'] = 'Regular expression';
 $string['partialmatch'] = 'Only partial match';
 $string['partialmatch_note'] = 'By default the complete input must match the regular expression. The line anchors ^ and $ are used to match from start to end. By checking this, the match would be partial only, without the line anchors.';
+$string['pluginname'] = 'Regex';
+$string['privacy:metadata'] = 'The datafield regex plugin doesn\'t store any personal data; it uses tables defined in mod_data.';
 $string['regex_empty'] = 'Regular expression is empty';
 $string['regex_invalid'] = 'Regular expression is invalid';
 $string['regex_note'] = 'Please enter the regex without any delimiter char (e.g. /) at the beginning and end of the expression.';
-$string['privacy:metadata'] = 'The datafield regex plugin doesn\'t store any personal data; it uses tables defined in mod_data.';

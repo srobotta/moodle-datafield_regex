@@ -25,7 +25,9 @@
 /**
  * Database regex field install code
  */
-function xmldb_datafield_regex_install() {
+function xmldb_datafield_regex_upgrade($oldversion): bool {
+
     // Do this check on each upgrade, in case someone messed up the icons.
     \datafield_regex\install::copyicon();
+    return true;
 }

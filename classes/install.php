@@ -23,6 +23,9 @@
 
 namespace datafield_regex;
 
+/**
+ * Helper class that copies the icon on installs and upgrades.
+ */
 class install {
 
     /**

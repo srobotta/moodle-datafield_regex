@@ -24,6 +24,8 @@
 
 /**
  * Database regex field install code
+ * @param int|float $oldversion
+ * @return bool
  */
 function xmldb_datafield_regex_upgrade($oldversion): bool {
 

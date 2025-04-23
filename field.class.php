@@ -217,7 +217,9 @@ class data_field_regex extends data_field_base {
             return ['param3' => get_string('regex_empty', 'datafield_regex')];
         }
         try {
-            preg_match($this->get_pattern($fieldinput->param3), '');
+            if (preg_match($this->get_pattern($fieldinput->param3), '') === false) {
+                return ['param3' => get_string('regex_invalid', 'datafield_regex')];
+            }
         } catch (\Exception $e) {
             return ['param3' => get_string('regex_invalid', 'datafield_regex')
                 . ' - ' . $e->getMessage()];

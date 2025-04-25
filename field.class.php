@@ -22,6 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class data_field_regex extends data_field_base {
+
     /**
      * Name of the field type.
      * @var string
@@ -34,6 +35,39 @@ class data_field_regex extends data_field_base {
      * @var int
      */
     protected static $priority = self::MIN_PRIORITY;
+
+    /**
+     * Constructor, that does basically the same as the parent, except that
+     * on an error in the field definition, the form values should be prefilled
+     * with what was send before (including the bad value to be able to correct it).
+     * @param int|object $field
+     * @param int|object $data
+     * @param int $cm
+     */
+    public function __construct($field = 0, $data = 0, $cm = 0) {
+        $fieldid = optional_param('fid', 0, PARAM_INT);
+        $dataid = optional_param('d', 0, PARAM_INT);
+        if ($fieldid > 0 && $dataid > 0
+            && is_object($field)
+            && $field->id == $fieldid && $field->dataid = $dataid
+        ) {
+            foreach (['name', 'description', 'required', 'param'] as $property) {
+                if ($property === 'param') {
+                    for ($x = 1; $x < 6; $x++) {
+                        $paramno = $property . $x;
+                        $field->$paramno = optional_param($paramno, $field->$paramno, PARAM_RAW);
+                    }
+                } else {
+                    $field->$property = optional_param(
+                        $property,
+                        $field->$property,
+                        PARAM_RAW
+                    );
+                }
+            }
+        }
+        parent::__construct($field, $data, $cm);
+    }
 
     /**
      * Preview is supported.
@@ -98,14 +132,13 @@ class data_field_regex extends data_field_base {
         $this->field->dataid = $this->data->id;
         $this->field->type = $this->type;
         $this->field->param1 = false; // Autolink, obsolete.
-        $this->field->param2 = false; // Case-sensitive.
-        $this->field->param3 = '';    // The regex term.
-        $this->field->param4 = false; // Partial match.
-        $this->field->param5 = '';    // Custom error message.
-        $this->field->name = '';
-        $this->field->description = '';
-        $this->field->required = false;
-
+        $this->field->param2 = (bool)optional_param('param2', false, PARAM_INT); // Case-sensitive.
+        $this->field->param3 = optional_param('param3', '', PARAM_RAW); // The regex term.
+        $this->field->param4 = (bool)optional_param('param4', false, PARAM_INT); // Partial match.
+        $this->field->param5 = optional_param('param5', '', PARAM_RAW); // Custom error message.
+        $this->field->name = optional_param('name', '', PARAM_RAW);
+        $this->field->description = optional_param('description', '', PARAM_RAW);;
+        $this->field->required = (bool)optional_param('required', false, PARAM_RAW);
         return true;
     }
 
@@ -118,7 +151,6 @@ class data_field_regex extends data_field_base {
     public function define_field($data) {
         $this->field->type = $this->type;
         $this->field->dataid = $this->data->id;
-
         $this->field->name = trim($data->name);
         $this->field->description = trim($data->description);
         $this->field->required = !empty($data->required) ? 1 : 0;

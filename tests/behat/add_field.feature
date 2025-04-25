@@ -25,14 +25,23 @@ Feature: Teachers can create a new datatype regex field
     And I set the following fields to these values:
       | Field name         | testfield        |
       | Field description  | Test Regex Field |
+      | Regular expression | test\|x)+        |
+      | Only partial match | 1                |
+    And I press "Save"
+    Then I should see "Regular expression is invalid"
+    And the field "Field name" matches value "testfield"
+    And the field "Regular expression" matches value "test|x)+"
+    When I set the following fields to these values:
+      | Field name         | testfieldnew     |
+      | Field description  | Test Regex Field |
       | Regular expression | tes(t\|x)+       |
       | Only partial match | 1                |
     And I press "Save"
-    Then I should see "testfield"
+    Then I should see "testfieldnew"
     And I should see "Test Regex Field"
     And I should see "Regular expression"
     When I am on the "Test database name" "mod_data > add entry" page logged in as teacher1
     And I set the following fields to these values:
-      | testfield | tesxxx! |
+      | testfieldnew | tesxxx! |
     And I press "Save"
     Then I should see "tesxxx!"

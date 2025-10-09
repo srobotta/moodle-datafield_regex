@@ -1,9 +1,9 @@
 # Database Field Regular expression
 
-![Release](https://img.shields.io/badge/Release-1.5-blue.svg)
+![Release](https://img.shields.io/badge/Release-1.6-blue.svg)
 [![Moodle Plugin CI](https://github.com/srobotta/moodle-datafield_regex/actions/workflows/moodle-plugin-ci.yml/badge.svg)](https://github.com/srobotta/moodle-datafield_regex/actions/workflows/moodle-plugin-ci.yml)
-[![PHP Support](https://img.shields.io/badge/php-7.4--8.4-blue)](https://github.com/srobotta/moodle-datafield_regex/action)
-[![Moodle Support](https://img.shields.io/badge/Moodle-4.1--5.0-orange)](https://github.com/srobotta/moodle-datafield_regex/actions)
+[![PHP Support](https://img.shields.io/badge/php-8.1--8.4-blue)](https://github.com/srobotta/moodle-datafield_regex/action)
+[![Moodle Support](https://img.shields.io/badge/Moodle-4.1--5.1-orange)](https://github.com/srobotta/moodle-datafield_regex/actions)
 [![License GPL-3.0](https://img.shields.io/github/license/srobotta/moodle-datafield_regex?color=lightgrey)](https://github.com/srobotta/moodle-datafield_regex/blob/main/LICENSE)
 
 This plugin provides an additional field type for regular expression for the
@@ -15,10 +15,11 @@ expression that must match before the value is accepted.
 
 Please run the following steps:
 1. Extract the zip archive into 
-`<moodle_install_dir>/mod/data/field/`. 
+`<moodle_install_dir>/mod/data/field/`. From Moodle 5.1 on it's
+`<moodle_install_dir>/public/mod/data/field/`
 1. Rename the newly created directory `moodle-datafield_regex` into `regex`
 so that the files from the repository are inside the directory hierarchy
-`<moodle_install_dir>/mod/data/field/regex`.
+`.../mod/data/field/regex`.
 1. Finish the installation via the Moodle admin page.
 
 ## Usage
@@ -82,6 +83,12 @@ taken from https://iconduck.com/icons/275980/regex. It's published
 under the [CC BY 4.0](https://iconduck.com/licenses/cc-by-4.0) license.
 
 ## Version History
+
+### 1.6
+
+- Add support for Moodle 5.1.
+- Remove unsupported PHP versions from the CI pipeline.
+- Prefill fields with old value when an invalid data error occurs.
 
 ### 1.5
 

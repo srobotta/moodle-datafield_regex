@@ -22,7 +22,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class data_field_regex extends data_field_base {
-
     /**
      * Name of the field type.
      * @var string
@@ -47,7 +46,8 @@ class data_field_regex extends data_field_base {
     public function __construct($field = 0, $data = 0, $cm = 0) {
         $fieldid = optional_param('fid', 0, PARAM_INT);
         $dataid = optional_param('d', 0, PARAM_INT);
-        if ($fieldid > 0 && $dataid > 0
+        if (
+            $fieldid > 0 && $dataid > 0
             && is_object($field)
             && $field->id == $fieldid && $field->dataid = $dataid
         ) {
@@ -137,7 +137,7 @@ class data_field_regex extends data_field_base {
         $this->field->param4 = (bool)optional_param('param4', false, PARAM_INT); // Partial match.
         $this->field->param5 = optional_param('param5', '', PARAM_RAW); // Custom error message.
         $this->field->name = optional_param('name', '', PARAM_RAW);
-        $this->field->description = optional_param('description', '', PARAM_RAW);;
+        $this->field->description = optional_param('description', '', PARAM_RAW);
         $this->field->required = (bool)optional_param('required', false, PARAM_RAW);
         return true;
     }
@@ -175,7 +175,7 @@ class data_field_regex extends data_field_base {
      */
     public function display_search_field($value = '') {
         return '<label class="accesshide" for="f_' . $this->field->id . '">' . get_string('fieldname', 'data') . '</label>' .
-               '<input type="text" size="16" id="f_' . $this->field->id . '" '.
+               '<input type="text" size="16" id="f_' . $this->field->id . '" ' .
                ' name="f_' . $this->field->id . '" value="' . s($value) . '" class="form-control d-inline"/>';
     }
 
@@ -186,7 +186,7 @@ class data_field_regex extends data_field_base {
      * @throws coding_exception
      */
     public function parse_search_field($defaults = null) {
-        $param = 'f_'.$this->field->id;
+        $param = 'f_' . $this->field->id;
         if (empty($defaults[$param])) {
             $defaults = [$param => ''];
         }

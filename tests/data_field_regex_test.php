@@ -118,9 +118,11 @@ final class data_field_regex_test extends \advanced_testcase {
      * @return \data_field_regex The created data field with the specified regex validation.
      * @throws \coding_exception If there is an error while creating the data field.
      */
-    protected function create_field_regex(string $regex,
-                                          ?bool $casesensitive = false,
-                                          ?bool $partialmatch = false): \data_field_regex {
+    protected function create_field_regex(
+        string $regex,
+        ?bool $casesensitive = false,
+        ?bool $partialmatch = false
+    ): \data_field_regex {
         $record = (object)[
             'type' => 'regex',
             'required' => true,

@@ -35,8 +35,7 @@ use mod_data\privacy\datafield_provider;
  * @copyright  2024 Stephan Robotta <stephan.robotta@bfh.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class provider implements null_provider, datafield_provider {
-
+class provider implements datafield_provider, null_provider {
     /**
      * Get the language string identifier with the component's language
      * file to explain why this plugin stores no data.

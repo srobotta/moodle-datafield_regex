@@ -28,15 +28,14 @@ namespace datafield_regex;
  * Helper class that copies the icon on installs and upgrades.
  */
 class install {
-
     /**
      * Copy the regex icon into the mod/data/pix folder.
      * @return void
      */
     public static function copyicon() {
-        $link = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'pix', 'field', 'regex.svg']);
+        $link = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'pix', 'field', 'icon.svg']);
         if (!file_exists($link)) {
-            $target = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'pix', 'regex.svg']);
+            $target = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'pix', 'icon.svg']);
             echo 'Create symlink for regex icon... ';
             if (!\symlink($target, $link)) {
                 echo 'failed' . PHP_EOL . 'Copy regex icon... ';

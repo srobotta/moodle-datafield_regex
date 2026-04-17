@@ -1,9 +1,9 @@
 # Database Field Regular expression
 
-![Release](https://img.shields.io/badge/Release-1.6-blue.svg)
+![Release](https://img.shields.io/badge/Release-1.7-blue.svg)
 [![Moodle Plugin CI](https://github.com/srobotta/moodle-datafield_regex/actions/workflows/moodle-plugin-ci.yml/badge.svg)](https://github.com/srobotta/moodle-datafield_regex/actions/workflows/moodle-plugin-ci.yml)
 [![PHP Support](https://img.shields.io/badge/php-8.1--8.4-blue)](https://github.com/srobotta/moodle-datafield_regex/action)
-[![Moodle Support](https://img.shields.io/badge/Moodle-4.1--5.1-orange)](https://github.com/srobotta/moodle-datafield_regex/actions)
+[![Moodle Support](https://img.shields.io/badge/Moodle-4.1--5.2-orange)](https://github.com/srobotta/moodle-datafield_regex/actions)
 [![License GPL-3.0](https://img.shields.io/github/license/srobotta/moodle-datafield_regex?color=lightgrey)](https://github.com/srobotta/moodle-datafield_regex/blob/main/LICENSE)
 
 This plugin provides an additional field type for regular expression for the
@@ -83,6 +83,10 @@ taken from https://iconduck.com/icons/275980/regex. It's published
 under the [CC BY 4.0](https://iconduck.com/licenses/cc-by-4.0) license.
 
 ## Version History
+
+### 1.7
+
+- Add support for Moodle 5.2.
 
 ### 1.6
 

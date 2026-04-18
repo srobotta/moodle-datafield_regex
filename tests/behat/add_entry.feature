@@ -26,13 +26,13 @@ Feature: Users can use the datatype field regex and add an entry with that type.
     And I set the following fields to these values:
       | field text  | some value |
       | field regex |            |
-    And I press "Save"
+    And I click on "//input[@value='Save']" "xpath"
     Then I should see "You must supply a value here."
     When I set the field "field regex" to "someval"
-    And I press "Save"
+    And I click on "//input[@value='Save']" "xpath"
     Then I should see "Your input didn't match the expected pattern."
     And I set the field "field regex" to "fossbar"
-    And I press "Save"
+    And I click on "//input[@value='Save']" "xpath"
     Then I should see "field regex"
     And I should see "Last edited:"
     And I should not see "Your input didn't match the expected pattern."
@@ -48,11 +48,11 @@ Feature: Users can use the datatype field regex and add an entry with that type.
     And I set the following fields to these values:
       | field text  | some value |
       | field regex | invalid    |
-    And I press "Save"
+    And I click on "//input[@value='Save']" "xpath"
     Then I should see "Data error in EN"
     And I should not see "Your input didn't match the expected pattern."
     When I set the field "field regex" to "fossbar"
-    And I press "Save"
+    And I click on "//input[@value='Save']" "xpath"
     Then I should see "field regex"
     And I should see "Last edited:"
     And I should not see "Data error in EN"

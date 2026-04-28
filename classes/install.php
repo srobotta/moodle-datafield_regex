@@ -33,11 +33,11 @@ class install {
      * @return void
      */
     public static function copyicon() {
-        $link = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'pix', 'field', 'icon.svg']);
+        $link = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'pix', 'field', 'regex.svg']);
         if (!file_exists($link)) {
-            $target = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'pix', 'icon.svg']);
+            $target = realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'pix', 'icon.svg']));
             echo 'Create symlink for regex icon... ';
-            if (!\symlink($target, $link)) {
+            if (!@symlink($target, $link)) {
                 echo 'failed' . PHP_EOL . 'Copy regex icon... ';
                 if (!\copy($target, $link)) {
                     echo 'failed' . PHP_EOL . "Please copy {$target} to {$link}" . PHP_EOL;
